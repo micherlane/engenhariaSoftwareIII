@@ -1,0 +1,14 @@
+1) Faça uma pesquisa nos seus primeiros repositórios e aponte trechos de
+código que você hoje melhoraria e/ou não escreveria mais da mesma forma
+e proponha uma melhoria.
+2) Aplique o princípio “Tell, don’t ask” no próprio método publish da classe
+Post do slide 18. Crie um método chamado validate() que encapsula as
+validações existentes e chame-o.
+3) Identifique casos em que você aplicaria os princípios “Tell, don’t ask” e “Fail
+first” e faça a alteração em um repositório que você tenha usado em
+disciplinas anteriores. Documente em um repositório o “antes e depois”.
+4) Aplique os dois princípios vistos a um código de repositório público.
+5) Aplique em códigos de repositórios públicos ou seus o princípio “nunca usar
+else” do Object Calisthenics com as duas vertentes:
+a. Early return;
+b. Polimorfismo
