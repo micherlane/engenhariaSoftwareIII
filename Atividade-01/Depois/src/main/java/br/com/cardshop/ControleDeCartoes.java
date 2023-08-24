@@ -111,9 +111,7 @@ public class ControleDeCartoes {
 	
 	public static void listarCartoesVencidos(ArrayList<CartaoDeCredito> cartoes) {
 		percorrerListaCartoes(cartoes,  cartao -> {
-				if(cartao.estahVencido()){
-					System.out.println(cartao);
-				}
+				cartao.mostrarVencido();
 			}
 		);			
 	}

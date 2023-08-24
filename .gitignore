@@ -1,0 +1,33 @@
+# Arquivos de configuração do Maven
+Atividade-01/pom.xml.tag
+Atividade-01/pom.xml.releaseBackup
+Atividade-01/pom.xml.versionsBackup
+Atividade-01/pom.xml.next
+Atividade-01/release.properties
+Atividade-01/dependency-reduced-pom.xml
+Atividade-01/buildNumber.properties
+
+# Arquivos e diretórios de compilação
+Atividade-01/target/
+
+# Diretórios gerados por IDEs
+.idea/
+.eclipse/
+.vscode/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Arquivos de configuração específicos da IDE Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# Arquivos de configuração específicos da IDE IntelliJ
+*.iml
+out/
+.idea_modules/

@@ -80,19 +80,19 @@ public class CartaoDeCredito {
 	
 	public String comprar(double valorCompra, int senha) {
 		Date data = new Date();
+		
 		if(calcularDiferencaData(data)<0) {
 			return "A compra não pode ser concluída, pois o cartão está vencido";
 		}
-		else {
-			if((valorCompra<getLimiteCompras()&& (senha == getSenha()))) {
-				    CartaoDeCredito.totalCompras += valorCompra;
-					return "Compra realizada com sucesso!";
-			}
-			else {
+		
+		if(valorCompra >= getLimiteCompras() || senha != getSenha()) {
 				return "Compra não concluída";
-			}
-			}
 		}
+		
+		CartaoDeCredito.totalCompras += valorCompra;
+		return "Compra realizada com sucesso!";
+			
+	}
 	
 	public boolean estahVencido() {
 		Date data = new Date();
@@ -100,6 +100,12 @@ public class CartaoDeCredito {
 			return true;
 		}
 		return false;
+	}
+	
+	public void mostrarVencido() {
+		if(this.estahVencido()){
+			System.out.println(this);
+		}
 	}
 			
 	public long calcularDiferencaData(Date data) {
@@ -113,8 +119,3 @@ public class CartaoDeCredito {
 		return dif;
 	    }
 	}
-	
-	
-	
-	
-
