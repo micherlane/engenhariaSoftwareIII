@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.Iterator;
+
 
 public class ControleDeCartoes {
 
@@ -62,11 +62,11 @@ public class ControleDeCartoes {
 				se = input.nextInt();
 				System.out.println("Valor da compra: ");
 				compra = input.nextDouble();
-				RealizarCompra(cartoes,num,se,compra);
+				realizarCompra(cartoes,num,se,compra);
 				break;
 			}
 			case 3:{
-				ListarCartoes(cartoes);
+				listarCartoes(cartoes);
 				break;
 			}
 			case 4:{
@@ -77,7 +77,7 @@ public class ControleDeCartoes {
 				break;
 			}
 			case 5:{
-				ListarCartoesVencidos(cartoes);
+				listarCartoesVencidos(cartoes);
 				break;
 			}
 			case 6:{
@@ -92,40 +92,39 @@ public class ControleDeCartoes {
 		
 	}
 	
-	public static void RealizarCompra(ArrayList<CartaoDeCredito> cartoes, int numero, int senha, double valor) {
-        Iterator<CartaoDeCredito> iterator = cartoes.iterator();
-
-		while(iterator.hasNext()) {
-			CartaoDeCredito cartao = iterator.next();
-
-			if(cartao.getNumero() == numero) {
-				System.out.println(cartao.comprar(valor, senha));
-			}
-
-
-		}
+	public static void percorrerListaCartoes(ArrayList<CartaoDeCredito> cartoes, Callback callback) {
+		for (CartaoDeCredito cartao : cartoes) {
+	        callback.execute(cartao);
+	    }
 	}
-	public static void ListarCartoesVencidos(ArrayList<CartaoDeCredito> cartoes) {
-		Iterator<CartaoDeCredito> iterator = cartoes.iterator();
 
-		while(iterator.hasNext()){
-			CartaoDeCredito cartao = iterator.next();
-
-			if(cartao.estahVencido()){
-				System.out.println(cartao);
-			}
-		}
-	}
-	public static void ListarCartoes(ArrayList<CartaoDeCredito> cartoes) {
-		Iterator<CartaoDeCredito> iterator = cartoes.iterator();
-
-		while(iterator.hasNext()){
-			CartaoDeCredito cartao = iterator.next();
-
-			System.out.println("======================================");
-			System.out.println("\n"+ cartao);
-		}
 	
+	public static void realizarCompra(ArrayList<CartaoDeCredito> cartoes, final int numero, final int senha, final double valor) {
+		percorrerListaCartoes(cartoes,  cartao -> {
+				if(cartao.getNumero() == numero) {
+					System.out.println(cartao.comprar(valor, senha));
+				}
+			}
+		);
+	}
+	
+	
+	public static void listarCartoesVencidos(ArrayList<CartaoDeCredito> cartoes) {
+		percorrerListaCartoes(cartoes,  cartao -> {
+				if(cartao.estahVencido()){
+					System.out.println(cartao);
+				}
+			}
+		);			
+	}
+	
+	
+	public static void listarCartoes(ArrayList<CartaoDeCredito> cartoes) {
+		percorrerListaCartoes(cartoes, cartao -> {
+				System.out.println("======================================");
+				System.out.println("\n"+ cartao);
+			}
+		);
 	}
 
 }
