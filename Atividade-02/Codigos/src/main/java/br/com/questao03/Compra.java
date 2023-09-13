@@ -1,23 +1,40 @@
 package br.com.questao03;
 
 public class Compra {
-	public static void realizarCompra(Cliente cliente, Produto produto) {
-		if(validarCompra(cliente, produto)) {
-			return ;
-		}
-		
-		double valorDebito = cliente.getConta().getSaldo() - produto.getValor();
-		
-		debitarSaldo(cliente, valorDebito);
-		
+	private Cliente cliente;
+	private Produto produto;
+	
+	
+	public Compra(Cliente cliente, Produto produto) {
+		super();
+		this.cliente = cliente;
+		this.produto = produto;
+	}
+
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+
+	public boolean validarCompra() {
+		return cliente.getConta().getSaldo() >= produto.getValor();
 	}
 	
-	private static boolean validarCompra(Cliente cliente, Produto produto) {
-		return cliente.getConta().getSaldo() < produto.getValor();
-	}
-	
-	private static void debitarSaldo(Cliente cliente, double valor) {
-		
-		cliente.getConta().setSaldo(valor);
-	}
+
 }

@@ -18,8 +18,9 @@ public class MainSistemaCompra {
 				
 		System.out.println("\nCOMPRA");
 		System.out.println(cliente.getNome() + " compra produto " + produto.getNome());
-		Compra.realizarCompra(cliente, produto);
-		
+		System.out.println("\n" + Loja.realizarCompra(cliente, produto));
+		System.out.println("\n" + Loja.realizarCompra(cliente, produto));
+		System.out.println("\n" + Loja.realizarCompra(cliente, produto));
 		System.out.println("Saldo do cliente " + cliente.getNome() + " após a compra " + cliente.getConta().getSaldo());
 				
 
