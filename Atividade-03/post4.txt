@@ -1,0 +1,5 @@
+ID: 0
+Texto: Estou trabalhando
+Autor: L
+Data: 2023-09-29
+Quantidade de Likes: 0

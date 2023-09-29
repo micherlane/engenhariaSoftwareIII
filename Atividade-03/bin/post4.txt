@@ -1,0 +1,5 @@
+ID: 0
+Texto: Estou trabalhando
+Autor: L
+Data: Wed Dec 31 21:00:00 BRT 1969
+Quantidade de Likes: 0
