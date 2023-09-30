@@ -8,8 +8,9 @@ Atividade-01/dependency-reduced-pom.xml
 Atividade-01/buildNumber.properties
 
 # Arquivos e diretórios de compilação
-Atividade-01/target/
-
+/Atividade-01/target/
+/Atividade-02/target/
+/Atividade-03/target/
 # Diretórios gerados por IDEs
 .idea/
 .eclipse/
@@ -31,3 +32,6 @@ Atividade-01/target/
 *.iml
 out/
 .idea_modules/
+
+#Ignora as .class
+*.class
