@@ -1,8 +1,5 @@
 package questao01;
 
-import lombok.Data;
-
-@Data
 public class Autor {
     private int id;
     private String nome;
