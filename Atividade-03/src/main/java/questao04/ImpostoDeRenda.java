@@ -33,6 +33,7 @@ public class ImpostoDeRenda {
 	public void processar() {
 		CalculadoraImpostoDeRenda calculadora = new CalculadoraImpostoDeRenda();
 		
+		
 		if(ValidacaoImpostoDeRenda.validar(cpfContribuinte, rendimentos, despesas)) {
 			double impostoDevido =  calculadora.calcularImposto(rendimentos, despesas);
 			
