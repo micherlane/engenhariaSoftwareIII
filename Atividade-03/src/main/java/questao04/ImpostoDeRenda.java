@@ -30,16 +30,13 @@ public class ImpostoDeRenda {
 		return despesas;
 	}
 	
-	public void processar() {
-		CalculadoraImpostoDeRenda calculadora = new CalculadoraImpostoDeRenda();
+	public void processar(List<Validacao> validacoes, CalculadoraImpostoDeRenda calculadora, RelatorioImpostoRenda relatorioImpostoDeRenda) {		
+		ValidacaoImpostoDeRenda validacaoImpostoDeRenda = new ValidacaoImpostoDeRenda(validacoes);
 		
-		
-		if(ValidacaoImpostoDeRenda.validar(cpfContribuinte, rendimentos, despesas)) {
+		if(validacaoImpostoDeRenda.validar()) {
 			double impostoDevido =  calculadora.calcularImposto(rendimentos, despesas);
 			
-			RelatorioImpostoRenda relatorio = new RelatorioImpostoRenda();
-			
-			relatorio.gerarRelatorio(this, impostoDevido);
+			relatorioImpostoDeRenda.gerarRelatorio(this, impostoDevido);
 		}
 		
 	}
